@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+    <title>Home</title>
+    <style>
+        * {
+            font-family: 'Press Start 2P';
+        }
+        
+        body {
+            background-color: #000000;
+            color: aliceblue;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-top: 4rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+        
+        marquee {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-top: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: marqueeAnim 10s linear infinite;
+        }
+        
+        @keyframes marqueeAnim {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        #boydesign {
+            margin-top: 2rem;
+            opacity: 0;
+            animation: slideRight 5s ease-in-out forwards;
+        }
+        
+        #imgcodeboy {
+            margin-top: 2rem;
+            opacity: 0;
+            animation: slideLeft 5s ease-in-out forwards;
+        }
+        
+        #moblogsign,
+        #moblogsign2,
+        #mobdemo {
+            background-color: #ffffff;
+            color: #000012;
+            padding: 5px 15px;
+            margin-top: 25px;
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+        
+        #moblogsign:hover,
+        #moblogsign2:hover,
+        #mobdemo:hover {
+            background-color: #f8f8f8;
+            transform: translateY(-5px);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        #sale {
+            font-size: 0.75rem;
+            margin-top: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 2s ease 2s forwards;
+        }
+        
+        #days,
+        #hours,
+        #mins,
+        #secs {
+            display: inline;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+        
+            marquee {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+            }
+        
+            #boydesign {
+                margin-top: 1rem;
+            }
+        
+            #imgcodeboy {
+                margin-top: 1rem;
+            }
+        
+            #moblogsign,
+            #moblogsign2,
+            #mobdemo {
+                font-size: 0.75rem;
+                margin-top: 10px;
+            }
+        
+            #sale {
+                font-size: 0.5rem;
+                margin-top: 1rem;
+            }
+        
+            body {
+                overflow: auto;
+            }
+        
+            #laptop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>A CODING APP</h1>
+    <marquee behavior="alternate">BLACK HAT JR 🎓</marquee>
+    
+    <img id="boydesign" src="images/hi.png" width="30%">
+    <img id="imgcodeboy" src="https://user-images.githubusercontent.com/5713670/87202985-820dcb80-c2b6-11ea-9f56-7ec461c497c3.gif" width="20%">
+    
+    <div id="mobilenavbar">
+        <span id="slide">
+            <ul id="below">
+                <li class="litext"><a onclick="makeax()" href="#home">Home</a></li>
+                <li class="litext">About</li>
+                <li class="litext">Services</li>
+                <li class="litext">Contact</li>
+            </ul>
+        </span>
+        <span>
+            <a id="moblogsign" href="/login">Login</a>
+            <br>
+            <br>
+            <a id="moblogsign2" href="/signup">Signup</a>
+        </span>
+        <span id="sale">
+            WHITE FRIYAAY SALE 🔥🔥<br>
+            ENDS IN:<br><br>
+            🔥 <span id="days"></span><span id="hours"></span><span id="mins"></span><span id="secs"></span> 🔥
+            <h2 id="end"></h2>
+        </span>
+    </div>
+    
+    <img id="laptop" src="images/laptop.png" width="80%">
+    
+    <script>
+        slidejs = document.getElementById("slide");
+        hi = document.getElementById("ham");
+        hi2 = document.getElementById("ham3");
+        hi3 = document.getElementById("ham2");
+        var buttons = document.getElementsByClassName('litext');
+        
+        function makeax() {
+            hi.classList.toggle("hamchange");
+            hi3.classList.toggle("hamchange3");
+            hi2.classList.toggle("hamchange2");
+            slidejs.classList.toggle("slidechange");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.opacity = (buttons[i].style.opacity == "1" ? "0" : "1");
+            }
+        }
+        
+        // The data/time we want to countdown to
+        var countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+        
+        // Run myfunc every second
+        var myfunc = setInterval(function() {
+            var now = new Date().getTime();
+            var timeleft = countDownDate - now;
+            
+            // Calculating the days, hours, minutes and seconds left
+            var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            
+            // Result is output to the specific element
+            document.getElementById("days").textContent = days + "d ";
+            document.getElementById("hours").textContent = hours + "h ";
+            document.getElementById("mins").textContent = minutes + "m ";
+            document.getElementById("secs").textContent = seconds + "s ";
+            
+            // Display the message when countdown is over
+            if (timeleft < 0) {
+                clearInterval(myfunc);
+                document.getElementById("days").textContent = "";
+                document.getElementById("hours").textContent = "";
+                document.getElementById("mins").textContent = "";
+                document.getElementById("secs").textContent = "";
+                document.getElementById("end").textContent = "TIME UP!!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
